@@ -1,0 +1,8 @@
+{% load account %}
+{% autoescape off %}
+Greeting from StudHelper! You're almost there!
+Confirm your email now so you can log into your account.
+You can do that by accessing the link: {{ activate_url }}
+
+Thank you from StudHelper!
+{% endautoescape %}
