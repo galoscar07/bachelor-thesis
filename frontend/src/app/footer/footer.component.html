@@ -1,0 +1,30 @@
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <p class="lead">Sign up to our newsletter for the latest news</p>
+        <form class="form-inline" [formGroup]="subscribeForm" (ngSubmit)="onSubmitSubscribe($event)">
+          <div class="form-group">
+            <input
+              id="email-footer" name="email-footer"
+              formControlName="email-footer"
+              type="text" class="form-control"
+              placeholder="Your e-mail here"
+            >
+          </div>
+          <button type="submit" class="btn btn-primary ml-3">
+            Subscribe </button>
+        </form>
+      </div>
+      <div class="col-4 col-md-1 align-self-center"> <a href="#">
+        <i class="fa fa-fw fa-facebook text-muted fa-2x"></i>
+      </a> </div>
+      <div class="col-4 col-md-1 align-self-center"> <a href="#">
+        <i class="fa fa-fw fa-twitter text-muted fa-2x"></i>
+      </a> </div>
+      <div class="col-4 col-md-1 align-self-center"> <a href="#">
+        <i class="fa fa-fw fa-instagram text-muted fa-2x"></i>
+      </a> </div>
+    </div>
+  </div>
+</div>

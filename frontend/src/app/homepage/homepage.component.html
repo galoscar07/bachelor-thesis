@@ -1,0 +1,105 @@
+<div class="py-5" style="background-image: url(../assets/img/book-cover.jpg) ;background-size:cover;">
+  <div class="container">
+    <div class="row">
+      <div class="bg-white p-5 mx-auto col-md-8 col-10" style="opacity: 0.95">
+        <div *ngIf="signupFormSubmitted">
+          <h2 class="mb-1 text-center">
+          <b>Thank you!</b>
+        </h2>
+        <h4 class="mb-3 text-center">
+          We've send a confirmation email to check the validity of the data you've entered. Please check your email and come back later!
+        </h4>
+        </div>
+
+        <div *ngIf="!signupFormSubmitted">
+        <h2 class="mb-1 text-center">
+          <b>Create an account!</b>
+        </h2>
+        <h4 class="mb-3 text-center">
+          It is free and it will always be that way!
+        </h4>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmitRegister($event)">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">
+                First Name:
+              </label>
+              <input
+                [ngStyle]="{'border': errors.first_name ? '1px solid red' : ''}"
+                id="firstName" name="firstName"
+                formControlName="firstName"
+                class="form-control" type="text"
+                placeholder="first name"
+              >
+              <span style="color: red">{{errors.first_name}}</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">
+                Last Name:
+              </label>
+              <input
+                [ngStyle]="{'border': errors.last_name ? '1px solid red' : ''}"
+                id="lastName" name="lastName"
+                formControlName="lastName"
+                class="form-control"  type="text"
+                placeholder="last name">
+              <span style="color: red" *ngFor="let error of errors.last_name">{{error}}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">
+              Username:
+            </label>
+            <input
+              [ngStyle]="{'border': errors.username ? '1px solid red' : ''}"
+              id="username" name="username"
+              formControlName="username"
+              class="form-control" type="text"
+              placeholder="username">
+            <span style="color: red" *ngFor="let error of errors.username">{{error}}</span>
+          </div >
+          <div class="form-group">
+            <label for="emailHomepage">
+              E-mail:
+            </label>
+            <input
+              [ngStyle]="{'border': errors.email ? '1px solid red' : ''}"
+              id="emailHomepage" name="emailHomepage"
+              formControlName="emailHomepage"
+              class="form-control" type="text"
+              placeholder="e-mail">
+            <span style="color: red" *ngFor="let error of errors.email">{{error}}</span>
+          </div>
+          <div class="form-group">
+            <label for="passwordHomepage1">
+              Password:
+            </label>
+            <input
+              [ngStyle]="{'border': errors.password1 ? '1px solid red' : ''}"
+              id="passwordHomepage1" name="passwordHomepage1"
+              formControlName="passwordHomepage1"
+              type="password" class="form-control"
+              placeholder="********">
+            <span style="color: red" *ngFor="let error of errors.password1">{{error}}</span>
+          </div>
+          <div class="form-group">
+            <label for="passwordHomepage2">
+              Confirm password:
+            </label>
+            <input
+              [ngStyle]="{'border': errors.password2 ? '1px solid red' : ''}"
+              id="passwordHomepage2" name="passwordHomepage2"
+              formControlName="passwordHomepage2"
+              type="password" class="form-control"
+              placeholder="********">
+            <span style="color: red" *ngFor="let error of errors.password2">{{error}}</span>
+          </div>
+          <button type="submit" class="btn btn-primary mt-4 btn-block pt-2">
+            <h4><b>Create</b></h4>
+          </button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
