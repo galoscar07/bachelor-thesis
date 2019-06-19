@@ -1,4 +1,4 @@
-#!/Users/galoscar/Documents/GitProjects/Thesis/bachelor-thesis-master/backend/venv/bin/python
+#!/Users/galoscar/Documents/GitProjects/Thesis/bachelor-thesis-master/bachelor-thesis/backend/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

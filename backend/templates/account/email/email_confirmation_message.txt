@@ -1,8 +1,11 @@
 {% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
 {% autoescape off %}
-Greeting from StudHelper! You're almost there!
-Confirm your email now so you can log into your account.
-You can do that by accessing the link: {{ activate_url }}
-
-Thank you from StudHelper!
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Greeting from StudHelper!
+You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account via API.
+To confirm this is correct, go to http://stud-help.herokuapp.com/registration-complete/?token={{key}}
+{% endblocktrans %}
 {% endautoescape %}
+Thank you from StudHelper!
