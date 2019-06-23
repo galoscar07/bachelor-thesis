@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {AuthService} from "./auth.service";
 
 @Injectable()
 export class ApiService {
-  apiLink = 'http://localhost:8000/';
-  constructor(private http: HttpClient) {}
+  apiLink = 'https://stud-help-api.herokuapp.com/';
+  // apiLink = 'localhost:8000/';
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   postRegisterUser(username: string, email: string, password1: string, password2: string, firstName: string, lastName: string) {
     return this.http.post(this.apiLink + 'auth/registration/', {
@@ -42,5 +44,21 @@ export class ApiService {
       uid,
       token,
     });
+  }
+
+  postRegistrationAccountConfirmEmail(token: string) {
+    return this.http.post(this.apiLink + 'auth/registration/account-confirm-email/' + token + '/', {});
+  }
+
+  postNewDocument(title: string, content: string, shortContent: string) {
+    console.log(this.authService.get_token());
+    return this.http.post(this.apiLink + 'api/v1/document/', {
+      title,
+      content,
+      short_content: shortContent,
+    }, {headers: {
+        Authorization: 'Token ' + this.authService.get_token()
+
+      }});
   }
 }

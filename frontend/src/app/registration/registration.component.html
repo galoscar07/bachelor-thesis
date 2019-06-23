@@ -1,16 +1,17 @@
-<div class="py-5" style="background-color: whitesmoke ;background-size:cover;">
   <div class="container">
     <div class="row">
-      <div class="bg-white p-5 mx-auto col-md-8 col-10" style="opacity: 0.95">
-        <h2 class="mb-1 text-center">
-          <b>You're done!</b>
+        <h2 *ngIf="everythingWorkedOk" class="title">
+          You're done!
         </h2>
-        <h4 class="mb-3 text-center" style="margin-top: 20px">
-          <span class="text-muted">
+        <h4 *ngIf="everythingWorkedOk" class="subtitle" style="margin-top: 20px">
             The account was successfully created.
-          </span>
         </h4>
-      </div>
+
+        <h2 *ngIf="!everythingWorkedOk" class="title">
+          Something went wrong!
+        </h2>
+        <h4 *ngIf="!everythingWorkedOk" class="subtitle" style="margin-top: 20px">
+            Please contact us at stud.helper.email@gmail.com to solve the issue. Thank you!
+        </h4>
     </div>
   </div>
-</div>

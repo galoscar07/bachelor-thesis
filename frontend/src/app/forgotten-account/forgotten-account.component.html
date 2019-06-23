@@ -1,20 +1,18 @@
-<div class="py-5" style="background-color: whitesmoke ;background-size:cover;">
-  <div class="container">
-    <div class="row">
-      <div class="bg-white p-5 mx-auto col-md-8 col-10" style="opacity: 0.95">
-        <h2 class="mb-1 text-center">
+<div class="container">
+  <div class="card">
+        <h2 class="title">
           <b *ngIf="emailHasBeenSend">Email Sent!</b>
         </h2>
-        <h4 *ngIf="emailHasBeenSend" class="mb-3 text-center" style="margin-top: 20px">
+        <h4 *ngIf="emailHasBeenSend" class="subtitle" style="margin-top: 20px">
           <span class="text-muted">An email with the reset password link was sent to the email address in your profile.
             If you did not receive the email, verify that the user name is correct or contact the
             system administrator.
           </span>
         </h4>
-        <h2 class="mb-1 text-center">
+        <h2 class="title">
           <b *ngIf="!emailHasBeenSend">Find Your Account</b>
         </h2>
-        <h4 class="mb-3 text-center" *ngIf="!emailHasBeenSend">
+        <h4 class="subtitle" *ngIf="!emailHasBeenSend">
           Please enter your email address to send a reset password link for your account.
         </h4>
 
@@ -23,13 +21,11 @@
           [formGroup]="forgottenAccountForm"
           (ngSubmit)="onSubmitForgotten($event)"
         >
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="emailForgotten">
-                E-mail:
-              </label>
-              <input
-                [ngStyle]="{'border': errors.email ? '1px solid red' : ''}"
+          <div class="form-group">
+            <label for="emailForgotten">
+              E-mail:
+            </label>
+            <input [ngStyle]="{'border': errors.email ? '1px solid red' : ''}"
                 id="emailForgotten" name="emailForgotten"
                 formControlName="emailForgotten"
                 class="form-control" type="text"
@@ -37,12 +33,9 @@
               >
               <span style="color: red">{{errors.email}}</span>
             </div>
-          <button type="submit" class="btn btn-primary mt-4 btn-block pt-2">
-            <h4><b>Send</b></h4>
+          <button type="submit" class="button-primary">
+            Send
           </button>
-          </div>
         </form>
       </div>
-    </div>
   </div>
-</div>

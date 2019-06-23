@@ -1,0 +1,14 @@
+.textarea {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3pt 2pt #17887A;
+    border: 1px solid #ced4da;
+  }
+  &:hover {
+    box-shadow: 0 0 3pt 2pt #17887A;
+  }
+}

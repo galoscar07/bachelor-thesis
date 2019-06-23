@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-forgotten-account',
   templateUrl: './forgotten-account.component.html',
-  styleUrls: ['./forgotten-account.component.css']
+  styleUrls: ['./forgotten-account.component.scss']
 })
 export class ForgottenAccountComponent implements OnInit {
 

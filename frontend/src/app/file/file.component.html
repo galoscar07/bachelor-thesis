@@ -1,0 +1,11 @@
+<div class="container-home">
+  <div class="row" style="padding: 0">
+    <div class="title_main_page" style="margin-left: 20px; font-size: 50px;">{{title}}</div>
+    <div class="text_content">{{content}}</div>
+    <div class="text_content">{{content}}</div>
+    <div class="text_content">{{content}}</div>
+    <div class="text_content">{{content}}</div>
+    <div class="title_main_page" style="margin-left: 20px; font-size: 50px;">Questions:</div>
+    <div *ngFor="let question of questions; let i = index" class="question">{{question}}</div>
+  </div>
+</div>

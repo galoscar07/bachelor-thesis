@@ -1,0 +1,12 @@
+.text_content {
+    margin: 30px 25px;
+}
+
+.question {
+    margin: 20px 0px;
+    padding: 0 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(21, 123, 111);
+}

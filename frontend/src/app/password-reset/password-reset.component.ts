@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.css']
+  styleUrls: ['./password-reset.component.scss']
 })
 export class PasswordResetComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class PasswordResetComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
-      this.uid = params.ui;
+      this.uid = params.uid;
       this.token = params.token;
     });
   }
@@ -41,6 +41,7 @@ export class PasswordResetComponent implements OnInit {
   onSubmitPasswordReset() {
     const password1 = this.passwordReset.value.password1Reset;
     const password2 = this.passwordReset.value.password2Reset;
+    console.log(password1, password2, this.uid, this.token)
     this.apiService.postNewPassword(password1, password2, this.uid, this.token).subscribe(
       (response: Response) => {
         this.router.navigate(['/']);

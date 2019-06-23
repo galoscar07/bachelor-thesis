@@ -1,17 +1,103 @@
 .container {
-    background-image: url('https://stud-help.herokuapp.com/static/assets/img/book-cover.jpg');
+    background-image: url('src/assets/img/book-cover.jpg');
     background-size:cover;
     margin-top: 75px;
-    height: 825px;
-    padding: 75px;
-.container-2 {
-    width: 760px;
-    background-color: rgba(255, 255, 255, 0.95);
-    margin: auto;
-    padding: 40px;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 16px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-    border: 1px solid #ccc;
+    height: calc(100vh - 96px);
+    padding: 15px;
+    .card {
+        width: 760px;
+        background-color: rgba(255, 255, 255, 0.95);
+        margin: auto;
+        padding: 40px;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 16px;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+        border: 1px solid #ccc;
+    }
 }
+
+.title {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.subtitle {
+    color: rgb(51, 51, 51);
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+}
+
+
+.form-group {
+    display: block;
+    box-sizing: border-box;
+    label {
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: rgb(51, 51, 51);
+    }
+    input {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        margin-right: 10px;
+        height: 25px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 3pt 2pt #17887A;
+            border: 1px solid #ced4da;
+        }
+        &:hover {
+            box-shadow: 0 0 3pt 2pt #17887A;
+        }
+    }
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #12bbad;
+    border: 1px solid #12bbad;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+    width: 100%;
+    &:hover {
+        background-color: #17887A;
+    }
+    &:active {
+        background-color: #17887A;
+        box-shadow: 0 0px rgba(0, 0, 0, 0.1);
+        transform: translateY(1px);
+    }
+}
+
+.title_main_page {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.container-home {
+    background-color: #0e8c82;
+    margin-top: 75px;
+    min-height: calc(100vh - 75px);
+    .row {
+        width: 70%;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+    }
 }

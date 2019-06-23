@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 
@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
         this.authService.setTokenLocalStorage(response.key);
         this.router.navigate(['/home']);
         this.signinForm.reset();
+        console.log(response);
       },
       (error1 => {
         this.errors = error1.error;
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogoutClicked() {
+    console.log("HEre");
     const token = this.authService.token;
     this.authService.deleteTokenFromLocalStorage();
     this.apiService.postLogOutUser(token).subscribe(

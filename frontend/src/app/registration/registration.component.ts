@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ApiService} from "../shared/api.service";
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  token: string = null;
+  everythingWorkedOk = true;
+
+  constructor(private route: ActivatedRoute,
+              private apiService: ApiService) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.token = params.token;
+      this.apiService.postRegistrationAccountConfirmEmail(this.token).subscribe(
+          (response: any) => {
+            console.log(response);
+          },
+          (error1 => {
+            this.everythingWorkedOk = false;
+            console.log(error1);
+          })
+      );
+    });
   }
 
 }

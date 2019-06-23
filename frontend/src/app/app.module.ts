@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTooltipModule} from '@angular/material';
@@ -17,18 +16,25 @@ import {AuthGuardService} from './shared/auth-guard.service';
 import { ForgottenAccountComponent } from './forgotten-account/forgotten-account.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { NewFileComponent } from './new-file/new-file.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FileComponent } from './file/file.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     HomepageComponent,
     MainpageComponent,
     ForgottenAccountComponent,
     PasswordResetComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    NewFileComponent,
+    ProfileComponent,
+    FileComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

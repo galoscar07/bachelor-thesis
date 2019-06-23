@@ -23,4 +23,15 @@ export class AuthService {
     }
     return true;
   }
+
+  get_token() {
+    if (this.token === null) {
+      const token = localStorage.getItem('authToken');
+      if (token === null) {
+        return null;
+      }
+      return token;
+    }
+    return this.token;
+  }
 }

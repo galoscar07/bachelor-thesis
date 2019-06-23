@@ -1,0 +1,130 @@
+.list_of_docs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  .wrapper {
+    height: 170px;
+    padding: 10px;
+    width: 45%;
+    margin: 15px 15px;
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(220, 220, 220);
+    }
+    .text-wrap {
+      display: inline-block;
+      padding: 15px;
+      width: 290px;
+      hr {
+        border: 1px solid #ccc;
+      }
+      .docTitle {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #17887A;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.title_main_page {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.docIcon {
+  background: #eee;
+  border: 1px solid #ccc;
+  display: block;
+  width: 110px;
+  height: 150px;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow:inset rgba(255,255,255,0.8) 0 1px 1px;
+  text-indent:-9999em;
+  border-radius:3px 15px 3px 3px;
+}
+
+.docIcon:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: #ccc;
+  background: linear-gradient(45deg, #fff 0, #eee 50%, #ccc 100%);
+  box-shadow: rgba(0,0,0,0.05) -1px 1px 1px, inset white 0 0 1px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-radius:3px 15px 3px 3px;
+}
+
+.docIcon:after
+{
+  content:"";
+  display:block;
+  position:absolute;
+  left:0;
+  top:0;
+  width:60%;
+  margin:22px 20% 0;
+  height:15px;
+}
+
+.stripes3 {
+  height: 45px;
+  width: 60px;
+  position: relative;
+  top: 35%;
+  left: 23%;
+  .stripe {
+    background-color: rgb(151, 151, 151);
+    height: 10px;
+    margin-bottom: 5px;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(151, 151, 151);
+  position: relative;
+  top: 30%;
+  left: 23%;
+}
+.circle::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #ccc;
+  height: 10px;
+  margin-top: -5px;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  z-index: 9;
+}
+.circle::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #ccc;
+  width: 10px;
+  margin-left: -5px;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  z-index: 9;
+}
