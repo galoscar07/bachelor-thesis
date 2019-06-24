@@ -1,0 +1,40 @@
+<div class="question_container">
+  <div class="question_container__title">
+    {{question.question}}
+  </div>
+  <div class="question_container__answer_container">
+    <input type="hidden" name="question_id" value="{{question.pk}}">
+    <div
+      [ngClass]="['question_container_answer',
+        conditions.response1.clicked ? 'question_selected' : '',
+        conditions.response1.correct === true ? 'question_good_answer' : '',
+        conditions.response1.wrong === true ? 'question_bad_answer' : '']"
+      (click)="markSelected('response1')"
+    >
+      <div>
+        {{question.response1}}
+      </div>
+    </div>
+    <div [ngClass]="['question_container_answer',
+        conditions.response2.clicked ? 'question_selected' : '',
+        conditions.response2.correct === true ? 'question_good_answer' : '',
+        conditions.response2.wrong === true ? 'question_bad_answer' : '']"
+         (click)="markSelected('response2')"
+    >
+      <div>
+        {{question.response2}}
+      </div>
+    </div>
+    <div  [ngClass]="['question_container_answer',
+        conditions.response3.clicked ? 'question_selected' : '',
+        conditions.response3.correct === true ? 'question_good_answer' : '',
+        conditions.response3.wrong === true ? 'question_bad_answer' : '']"
+          (click)="markSelected('response3')"
+    >
+      <div>
+        {{question.response3}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-primary btn-check" (click)="onClickCheck()">Check answers!</div>

@@ -3,11 +3,13 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../shared/api.service';
 import {AuthService} from '../shared/auth.service';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers:  [ AuthService ]
 })
 export class HeaderComponent implements OnInit {
 
@@ -17,16 +19,19 @@ export class HeaderComponent implements OnInit {
     password: null,
     non_field_errors: null,
   };
+  isUserLogged: boolean;
 
   constructor(private apiService: ApiService,
               private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.signinForm = new FormGroup({
       emailHeader: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
     });
+    this.isUserLogged = this.authService.isUserAuthenticated();
   }
 
   onSubmitSignin() {
@@ -47,15 +52,14 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogoutClicked() {
-    console.log("HEre");
     const token = this.authService.token;
     this.authService.deleteTokenFromLocalStorage();
     this.apiService.postLogOutUser(token).subscribe(
       (response: any) => {
+        localStorage.clear();
         this.router.navigate(['/']);
       },
       (error1 => {
-        alert(error1);
       })
     );
     this.router.navigate(['/']);

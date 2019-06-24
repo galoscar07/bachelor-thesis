@@ -29,9 +29,10 @@ SECRET_KEY = '=r#iqk7oun^x=yi%qmyxka!)7u0t3nu)3j%+ek++!ho+p4hi41'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://localhost:4200'
+    'localhost:4200'
 ]
 
+CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
 
@@ -51,17 +52,21 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'apiv1'
+    'apiv1',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apiv1.middleware.GetUserMiddleware',
+    'apiv1.middleware.CheckPermissionMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -114,6 +119,12 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 
 REST_AUTH_SERIALIZERS = {
     'PASSWORD_RESET_SERIALIZER': 'emailsignup.serializers.PasswordResetSerializer',
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 WSGI_APPLICATION = 'backend.wsgi.application'

@@ -47,11 +47,10 @@ export class ApiService {
   }
 
   postRegistrationAccountConfirmEmail(token: string) {
-    return this.http.post(this.apiLink + 'auth/registration/account-confirm-email/' + token + '/', {});
+    return this.http.get(this.apiLink + 'auth/registration/account-confirm-email/' + token + '/', {});
   }
 
   postNewDocument(title: string, content: string, shortContent: string) {
-    console.log(this.authService.get_token());
     return this.http.post(this.apiLink + 'api/v1/document/', {
       title,
       content,
@@ -60,5 +59,21 @@ export class ApiService {
         Authorization: 'Token ' + this.authService.get_token()
 
       }});
+  }
+
+  getDocuments() {
+    return this.http.get(this.apiLink + 'api/v1/document/', {
+      headers: {
+        Authorization: 'Token ' + this.authService.get_token()
+      }
+    });
+  }
+
+  getDocumentWithIdAndQuestions(documentId: string) {
+    return this.http.get(this.apiLink + 'api/v1/document/' + documentId + '/', {
+      headers: {
+        Authorization: 'Token ' + this.authService.get_token()
+      }
+    });
   }
 }

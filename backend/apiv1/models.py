@@ -11,7 +11,10 @@ class UserDocument(models.Model):
 
 class Questions(models.Model):
     question = models.TextField()
-    document = models.ForeignKey(UserDocument, on_delete=models.CASCADE)
+    document = models.ForeignKey(UserDocument,
+                                 on_delete=models.CASCADE,
+                                 related_name='questions',
+                                 null=True, blank=True)
     response1 = models.TextField()
     response2 = models.TextField()
     response3 = models.TextField()

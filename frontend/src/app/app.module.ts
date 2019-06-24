@@ -17,9 +17,9 @@ import { ForgottenAccountComponent } from './forgotten-account/forgotten-account
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NewFileComponent } from './new-file/new-file.component';
-import { ProfileComponent } from './profile/profile.component';
 import { FileComponent } from './file/file.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { QuestionComponentComponent } from './question-component/question-component.component';
 
 
 @NgModule({
@@ -32,9 +32,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PasswordResetComponent,
     RegistrationComponent,
     NewFileComponent,
-    ProfileComponent,
     FileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    QuestionComponentComponent
   ],
   imports: [
     BrowserModule,

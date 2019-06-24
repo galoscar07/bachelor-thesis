@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
       this.token = params.token;
       this.apiService.postRegistrationAccountConfirmEmail(this.token).subscribe(
           (response: any) => {
-            console.log(response);
+
           },
           (error1 => {
             this.everythingWorkedOk = false;

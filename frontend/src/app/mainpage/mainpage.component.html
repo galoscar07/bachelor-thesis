@@ -4,8 +4,8 @@
             Here are your documents:
         </div>
         <div class="list_of_docs">
-            <div class="wrapper">
-                <div class="docIcon" href="#">
+            <div class="wrapper" *ngFor="let file of listOfFiles">
+                <div class="docIcon" [routerLink]="['/file/' + file.pk]">
                     <div class="stripes3">
                         <div class="stripe"></div>
                         <div class="stripe"></div>
@@ -13,51 +13,9 @@
                     </div>
                 </div>
                 <div class="text-wrap">
-                    <div class="docTitle">Lorem ipsum</div>
+                    <div class="docTitle">{{file.title}}</div>
                     <hr>
-                    <div class="docContent">dolor sit amet, consectetur adipiscing elit. Donec non rhoncus nulla.</div>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="docIcon" href="#">
-                    <div class="stripes3">
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                    </div>
-                </div>
-                <div class="text-wrap">
-                    <div class="docTitle">TITLETITLE</div>
-                    <hr>
-                    <div class="docContent">Lorem ipsum a ajksdii  asudh iasdjm ajsnd  ajsdn ajsnd</div>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="docIcon" href="#">
-                    <div class="stripes3">
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                    </div>
-                </div>
-                <div class="text-wrap">
-                    <div class="docTitle">TITLETITLE</div>
-                    <hr>
-                    <div class="docContent">Lorem ipsum a ajksdii  asudh iasdjm ajsnd  ajsdn ajsnd</div>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="docIcon" href="#">
-                    <div class="stripes3">
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                        <div class="stripe"></div>
-                    </div>
-                </div>
-                <div class="text-wrap">
-                    <div class="docTitle">TITLETITLE</div>
-                    <hr>
-                    <div class="docContent">Lorem ipsum a ajksdii  asudh iasdjm ajsnd  ajsdn ajsnd</div>
+                    <div class="docContent">{{file.short_content}}</div>
                 </div>
             </div>
             <div class="wrapper" (click)="onClickAddNewFile()">

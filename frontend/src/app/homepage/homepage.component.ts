@@ -50,6 +50,5 @@ export class HomepageComponent implements OnInit {
         this.errors = error1.error;
       })
     );
-    this.signupForm.reset();
   }
 }

@@ -1,7 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 
 from apiv1 import views
 
 urlpatterns = [
-    url(r'^document/', views.UserDocumentView.as_view()),
+    path('document/', views.UserDocumentView.as_view()),
+    path('document/<int:pk>/', views.UserDocumentDetailsView.as_view())
 ]

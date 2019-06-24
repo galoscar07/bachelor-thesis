@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, RouterModule} from "@angular/router";
+import {Router, RouterModule} from '@angular/router';
+import {ApiService} from '../shared/api.service';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -8,11 +10,23 @@ import {Router, RouterModule} from "@angular/router";
 })
 export class MainpageComponent implements OnInit {
 
+  listOfFiles = [];
+
   constructor(
-      private router: Router
-  ) { }
+      private router: Router,
+      private apiService: ApiService,
+      private authService: AuthService,
+  ) {}
 
   ngOnInit() {
+    if (!this.authService.isUserAuthenticated()) {
+      this.router.navigate(['/']);
+    }
+    this.apiService.getDocuments().subscribe(
+    (response: any) => {
+        this.listOfFiles = [...response];
+      }
+    );
   }
 
   onClickAddNewFile() {

@@ -19,7 +19,7 @@
     .text-wrap {
       display: inline-block;
       padding: 15px;
-      width: 290px;
+      width: calc(100% - 90px - 35px - 25px);
       hr {
         border: 1px solid #ccc;
       }
@@ -32,12 +32,6 @@
       }
     }
   }
-}
-
-.title_main_page {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 40px;
 }
 
 .docIcon {

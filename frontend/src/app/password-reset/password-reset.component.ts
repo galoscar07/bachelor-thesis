@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./password-reset.component.scss']
 })
 export class PasswordResetComponent implements OnInit {
-
+  emailHasBeenSend = false;
   passwordReset: FormGroup;
   token: string;
   uid: string;
@@ -41,7 +41,7 @@ export class PasswordResetComponent implements OnInit {
   onSubmitPasswordReset() {
     const password1 = this.passwordReset.value.password1Reset;
     const password2 = this.passwordReset.value.password2Reset;
-    console.log(password1, password2, this.uid, this.token)
+    console.log(password1, password2, this.uid, this.token);
     this.apiService.postNewPassword(password1, password2, this.uid, this.token).subscribe(
       (response: Response) => {
         this.router.navigate(['/']);
