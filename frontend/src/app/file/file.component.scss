@@ -12,7 +12,6 @@
 
 .question_container {
     border-radius: 7px;
-    height: 200px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -28,38 +27,38 @@
     }
 
     .question_container__answer_container {
-        height: 75%;
+        height: 50px;
         display: flex;
         flex-direction: column;
-        .question_container_answer {
-            height: 30%;
-            border-radius: 3px;
-            width: 98%;
-            background-color: #157b6f;
-            padding: 10px;
-            &:hover {
-                width: calc(100% + 20px);
-                background-color: rgba(#157b6f, 0.9);
-                cursor: pointer;
-            }
-        }
-        .question_selected {
-            width: calc(100%);
-            background-color: rgba(#157b6f, 0.9);
-            cursor: pointer;
-        }
-
-        .question_good_answer {
-            width: calc(100% );
-            background-color: rgba(66, 231, 85, 0.6);
-            cursor: pointer;
-        }
-
-        .question_bad_answer {
-            width: calc(100%);
-            background-color: rgba(255, 32, 38, 0.6);
-            cursor: pointer;
-        }
+        //.question_container_answer {
+        //    height: 30%;
+        //    border-radius: 3px;
+        //    width: 98%;
+        //    background-color: #157b6f;
+        //    padding: 10px;
+        //    &:hover {
+        //        width: calc(100% + 20px);
+        //        background-color: rgba(#157b6f, 0.9);
+        //        cursor: pointer;
+        //    }
+        //}
+        //.question_selected {
+        //    width: calc(100%);
+        //    background-color: rgba(#157b6f, 0.9);
+        //    cursor: pointer;
+        //}
+        //
+        //.question_good_answer {
+        //    width: calc(100% );
+        //    background-color: rgba(66, 231, 85, 0.6);
+        //    cursor: pointer;
+        //}
+        //
+        //.question_bad_answer {
+        //    width: calc(100%);
+        //    background-color: rgba(255, 32, 38, 0.6);
+        //    cursor: pointer;
+        //}
     }
 }
 

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from "./auth.service";
 
 @Injectable()
 export class ApiService {
-  apiLink = 'https://stud-help-api.herokuapp.com/';
-  // apiLink = 'localhost:8000/';
+  // apiLink = 'https://stud-help-api.herokuapp.com/';
+  apiLink = 'http://localhost:8000/';
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   postRegisterUser(username: string, email: string, password1: string, password2: string, firstName: string, lastName: string) {
@@ -73,6 +73,14 @@ export class ApiService {
     return this.http.get(this.apiLink + 'api/v1/document/' + documentId + '/', {
       headers: {
         Authorization: 'Token ' + this.authService.get_token()
+      }
+    });
+  }
+
+  deleteFile(id: string) {
+    return this.http.delete(this.apiLink + 'api/v1/document/' + id + '/', {
+      headers: {
+        Authorization: 'Token ' + this.authService.get_token(),
       }
     });
   }

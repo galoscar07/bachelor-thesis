@@ -15,7 +15,3 @@ class Questions(models.Model):
                                  on_delete=models.CASCADE,
                                  related_name='questions',
                                  null=True, blank=True)
-    response1 = models.TextField()
-    response2 = models.TextField()
-    response3 = models.TextField()
-    correct_response = models.TextField()

@@ -14,6 +14,7 @@ from rest_framework.authtoken.models import Token
 
 from apiv1.models import UserDocument, Questions
 from apiv1.serializer import UserDocumentSerializer
+from qg.wrapper import QuestionGenerator
 
 
 class UserDocumentView(generics.GenericAPIView, mixins.ListModelMixin):
@@ -46,4 +47,21 @@ class UserDocumentDetailsView(generics.GenericAPIView, mixins.RetrieveModelMixin
         return get_object_or_404(UserDocument, id=self.kwargs.get('pk', -1))
 
     def get(self, request, *args, **kwargs):
-        return self.retrieve(request, *args, **kwargs)
+        instance = self.get_object()
+        # if there are already questions don't recompute them
+        if instance.questions.exists():
+            serializer = self.get_serializer(instance)
+            return Response(serializer.data)
+        # else generate questions
+        text = instance.content
+        qg = QuestionGenerator(text=text)
+        question_list = qg.get_questions()
+        for question in question_list:
+            instance.questions.create(question=question)
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.delete()
+        return Response(status=status.HTTP_200_OK)

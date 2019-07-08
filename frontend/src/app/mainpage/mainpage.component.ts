@@ -25,11 +25,20 @@ export class MainpageComponent implements OnInit {
     this.apiService.getDocuments().subscribe(
     (response: any) => {
         this.listOfFiles = [...response];
+        console.log(response)
       }
     );
   }
 
   onClickAddNewFile() {
     this.router.navigate(['/new-file']);
+  }
+
+  onClickDelteFile(id: any) {
+    this.apiService.deleteFile(id).subscribe(
+        (response: any) => {
+          this.ngOnInit();
+        }
+    );
   }
 }

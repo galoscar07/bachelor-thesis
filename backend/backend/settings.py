@@ -29,10 +29,20 @@ SECRET_KEY = '=r#iqk7oun^x=yi%qmyxka!)7u0t3nu)3j%+ek++!ho+p4hi41'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost:4200'
+    'http://localhost:4200',
+    'http://localhost:8000',
+    'http://localhost:8000',
+    'https://stud-help-api.herokuapp.com'
 ]
 
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+    'https://localhost:4200',
+    'http://stud-help.herokuapp.com',
+    'https://stud-help-api.herokuapp.com',
+)
+
+CORS_ORIGIN_ALLOW_ALL=False
 
 # Application definition
 

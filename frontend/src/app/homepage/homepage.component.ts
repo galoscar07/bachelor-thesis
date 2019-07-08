@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../shared/api.service';
 import {error} from '@angular/compiler/src/util';
+import {AuthService} from '../shared/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -21,9 +23,14 @@ export class HomepageComponent implements OnInit {
     email: null,
   };
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
+    if (this.authService.isUserAuthenticated()) {
+      this.router.navigate(['/home']);
+    }
     this.signupForm = new FormGroup({
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../shared/api.service';
 import {AuthService} from '../shared/auth.service';
@@ -19,11 +19,10 @@ export class HeaderComponent implements OnInit {
     password: null,
     non_field_errors: null,
   };
-  isUserLogged: boolean;
 
   constructor(private apiService: ApiService,
-              private authService: AuthService,
-              private router: Router) {
+              public authService: AuthService,
+              private router: Router, ) {
   }
 
   ngOnInit() {
@@ -31,7 +30,6 @@ export class HeaderComponent implements OnInit {
       emailHeader: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
     });
-    this.isUserLogged = this.authService.isUserAuthenticated();
   }
 
   onSubmitSignin() {

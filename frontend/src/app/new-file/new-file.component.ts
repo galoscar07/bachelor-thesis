@@ -28,7 +28,7 @@ export class NewFileComponent implements OnInit {
   onSubmitForm() {
     const title = this.newArticleForm.value.title;
     const content = this.newArticleForm.value.content;
-    const shortContent = content.substr(0, 200);
+    const shortContent = content.substr(0, 150);
     console.log(title, content);
     this.apiService.postNewDocument(title, content, shortContent).subscribe(
         (response: any) => {

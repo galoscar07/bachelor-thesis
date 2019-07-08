@@ -13,6 +13,40 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
+    .delete_button {
+      position: relative;
+      top: 0;
+      left: 500px;
+    }
+    &:hover {
+      background-color: rgb(220, 220, 220);
+    }
+    .text-wrap {
+      display: inline-block;
+      padding: 15px;
+      width: calc(100% - 90px - 35px - 25px);
+      hr {
+        border: 1px solid #ccc;
+      }
+      .docTitle {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #17887A;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    }
+  }
+  .wrapper_add {
+    height: 170px;
+    padding: 10px;
+    width: 45%;
+    margin: 15px 15px;
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
     &:hover {
       background-color: rgb(220, 220, 220);
     }

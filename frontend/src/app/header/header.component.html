@@ -6,10 +6,10 @@
   <div class="left-side">
     <div class="logo-image"></div>
 
-    <a *ngIf="!isUserLogged" [routerLink]="'/'">
+    <a *ngIf="!authService.isUserAuthenticated()" [routerLink]="'/'">
       <div class="company-name">studHelper</div>
     </a>
-    <a *ngIf="isUserLogged" [routerLink]="'/home'">
+    <a *ngIf="authService.isUserAuthenticated()" [routerLink]="'/home'">
       <div class="company-name">studHelper</div>
     </a>
   </div>
@@ -17,7 +17,7 @@
   <!--If the user is not authenticated then show the form for log in on the header-->
   <div class="right-side">
   <form
-    *ngIf="!isUserLogged"
+    *ngIf="!authService.isUserAuthenticated()"
     [formGroup]="signinForm"
     (ngSubmit)="onSubmitSignin($event)"
   >
@@ -43,7 +43,7 @@
 
 
   <!--Else show the buttons for the site-->
-  <ul class="menu" *ngIf="isUserLogged">
+  <ul class="menu" *ngIf="authService.isUserAuthenticated()">
     <li class="menu-item"> <a [routerLink]="'/home'">Files</a> </li>
     <button (click)="onLogoutClicked()" class="button-primary">Log out</button>
   </ul>

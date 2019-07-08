@@ -6,7 +6,7 @@ from apiv1.models import UserDocument, Questions
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Questions
-        fields = ('id', 'question', 'response1', 'response2', 'response3', 'correct_response')
+        fields = ('id', 'question')
 
 
 class UserDocumentSerializer(serializers.ModelSerializer):
